@@ -9,6 +9,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- функция данных  [EX-1]
+- Added a function to get data [EX-1]
 
 - Started semver changelog
