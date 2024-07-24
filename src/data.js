@@ -1,15 +1,17 @@
+const MAX_ADVERTISEMENT_ID = 10;
+
 function getAd() {
     return {
-        id: 1,
-        title: 'Уютное гнездышко для молодоженов',
+        id: getRandomInt(1, MAX_ADVERTISEMENT_ID),
+        title: titles[getRandomInt(1, 5)],
         price: {
-            value: 5000,
-            currency: '&#8381;'
+            value: values[getRandomInt(1, 5)],
+            currency: currencys[getRandomInt(1, 4)]
         },
         type: HouseType.Flat,
         capacity: {
-            rooms: 2,
-            guests: 3
+            rooms: getRandomInt(1, 4),
+            guests: getRandomInt(1, 8)
         },
         dateTime: {
             checkIn: '2024.07.20 14:00',
@@ -45,3 +47,29 @@ function getAds(count) {
 
     return ads;
 }
+
+
+titles = [
+    'Уютное гнездышко для молодоженов',
+    'Отличное место для отдыха всей семьей',
+    'Симпатичная квартирка для одного',
+    'Большая квартира-студия',
+    'Скромная квартира на окраене города'
+]
+
+prices = [
+    values = [
+        3000,
+        2500,
+        3500,
+        4000,
+        7000
+    ],
+    currencys = [
+        '&#8381;',
+        '&dollar;',
+        '&pound;',
+        '&yen;'
+    ]
+]
+
