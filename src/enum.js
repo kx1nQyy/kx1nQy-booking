@@ -34,4 +34,16 @@ const HouseType = {
             en: 'palace'
         }
     },
+};
+
+const Currency = {
+    Ruble: '&#8381;',
+    Dollar: '&dollar;',
+    Pound: '&pound;',
+    Yen: '&yen;'
+};
+
+export {
+    HouseType,
+    Currency
 }

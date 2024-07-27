@@ -1,29 +1,52 @@
-function getAd() {
+import {
+    HouseType,
+    Currency
+} from "./enum";
+
+import {
+    TITLES,
+    CHECK_INS,
+    DESCRIPTIONS,
+    EVICTIONS,
+    PRICE_VALUES
+} from "./const";
+
+import {
+    getRandomInt,
+    getRandomArrayElement,
+    getRandomEnumElement,
+    getRandomBoolValue
+} from "./util";
+
+const MAX_ROOM_COUNT = 3;
+const MAX_GUEST_COUNT = 7;
+
+function getAd(count) {
     return {
-        id: 1,
-        title: 'Уютное гнездышко для молодоженов',
+        id: getRandomInt(1, count),
+        title: getRandomArrayElement(TITLES),
         price: {
-            value: 5000,
-            currency: '&#8381;'
+            value: getRandomArrayElement(PRICE_VALUES),
+            currency: getRandomEnumElement(Currency)
         },
-        type: HouseType.Flat,
+        type: getRandomEnumElement(HouseType),
         capacity: {
-            rooms: 2,
-            guests: 3
+            rooms: getRandomInt(1, MAX_ROOM_COUNT),
+            guests: getRandomInt(1, MAX_GUEST_COUNT)
         },
         dateTime: {
-            checkIn: '2024.07.20 14:00',
-            eviction: '2024.07.24 10:00'
+            checkIn: getRandomArrayElement(CHECK_INS),
+            eviction: getRandomArrayElement(EVICTIONS)
         },
-        featurs: {
-            wifi: true,
-            dishwasher: true,
-            parking: false,
-            washer: true,
-            elevator: false,
-            conditioner: true,
+        features: {
+            wifi: getRandomBoolValue(),
+            dishwasher: getRandomBoolValue(),
+            parking: getRandomBoolValue(),
+            washer: getRandomBoolValue(),
+            elevator: getRandomBoolValue(),
+            conditioner: getRandomBoolValue(),
         },
-        description: 'Великолепная квартира-студия в центре Токио. Подходит как туристам, так и бизнесменам. Квартира полностью укомплектована и недавно отремонтирована.',
+        description: getRandomArrayElement(DESCRIPTIONS),
         location: {
             latitude:  35.6895,
             longitude: 139.692
@@ -37,11 +60,13 @@ function getAd() {
 }
 
 function getAds(count) {
-        const ads = [];
+    const ads = [];
 
     for (let i = 0; i < count; i++) {
-        ads.push(getAd());
+        ads.push(getAd(count));
     }
 
     return ads;
 }
+
+export {getAds};
