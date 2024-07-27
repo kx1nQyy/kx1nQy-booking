@@ -1,29 +1,52 @@
-function getAd() {
+import {
+    HouseType,
+    Currency
+} from "./enum";
+
+import {
+    TITLES,
+    CHECK_INS,
+    DESCRIPTIONS,
+    EVICTIONS,
+    PRICE_VALUES
+} from "./const";
+
+import {
+    getRandomInt,
+    getRandomArrayElement,
+    getRandomEnumElement,
+    getRandomBoolValue
+} from "./util";
+
+const MAX_ROOM_COUNT = 3;
+const MAX_GUEST_COUNT = 7;
+
+function getAd(count) {
     return {
-        id: 1,
-        title: titles[getRandomInt(1, 5)],
+        id: getRandomInt(1, count),
+        title: getRandomArrayElement(TITLES),
         price: {
-            value: values[getRandomInt(1, 5)],
-            currency: currencys[getRandomInt(1, 4)]
+            value: getRandomArrayElement(PRICE_VALUES),
+            currency: getRandomEnumElement(Currency)
         },
-        type: HouseType.Flat,
+        type: getRandomEnumElement(HouseType),
         capacity: {
-            rooms: getRandomInt(1, 4),
-            guests: getRandomInt(1, 8)
+            rooms: getRandomInt(1, MAX_ROOM_COUNT),
+            guests: getRandomInt(1, MAX_GUEST_COUNT)
         },
         dateTime: {
-            checkIn: checkIns[getRandomInt(1 , 5)],
-            eviction: evictions[getRandomInt(1, 5)]
+            checkIn: getRandomArrayElement(CHECK_INS),
+            eviction: getRandomArrayElement(EVICTIONS)
         },
-        featurs: {
-            wifi: bools[getRandomInt(1, 2)],
-            dishwasher: bools[getRandomInt(1, 2)],
-            parking: bools[getRandomInt(1, 2)],
-            washer: bools[getRandomInt(1, 2)],
-            elevator: bools[getRandomInt(1, 2)],
-            conditioner: bools[getRandomInt(1, 2)],
+        features: {
+            wifi: getRandomBoolValue(),
+            dishwasher: getRandomBoolValue(),
+            parking: getRandomBoolValue(),
+            washer: getRandomBoolValue(),
+            elevator: getRandomBoolValue(),
+            conditioner: getRandomBoolValue(),
         },
-        description: 'Великолепная квартира-студия в центре Токио. Подходит как туристам, так и бизнесменам. Квартира полностью укомплектована и недавно отремонтирована.',
+        description: getRandomArrayElement(DESCRIPTIONS),
         location: {
             latitude:  35.6895,
             longitude: 139.692
@@ -37,11 +60,13 @@ function getAd() {
 }
 
 function getAds(count) {
-        const ads = [];
+    const ads = [];
 
     for (let i = 0; i < count; i++) {
-        ads.push(getAd());
+        ads.push(getAd(count));
     }
 
     return ads;
 }
+
+export {getAds};
