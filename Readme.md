@@ -1,5 +1,5 @@
-# Personal project «Exchange»
+# Personal project «Booking»
 
-Exchange is a service for posting advertisements for real estate rentals in the center of Tokyo.
+Booking - сервис размещения объявлений о сдаче в аренду недвижимости в центре Токио.
 
-Users are given the opportunity to post advertisements about their real estate or view already posted advertisements.
+Пользователям предоставляется возможность размещать объявления о своей недвижимости или просматривать уже размещённые объявления.
