@@ -59,7 +59,7 @@ function getAd(count) {
     };
 }
 
-function getAds(count) {
+const getAds = (count) => {
     const ads = [];
 
     for (let i = 0; i < count; i++) {
