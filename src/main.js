@@ -1,7 +1,7 @@
-import {getAds} from "./data";
+import {generateAds} from "./data";
 
-const ADVERTISMENT_COUNT = 10;
+const ADVERTISMENT_COUNT = 20;
 
-const ads = getAds(ADVERTISMENT_COUNT);
+const ads = generateAds(ADVERTISMENT_COUNT);
 
 console.log(ads);

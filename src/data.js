@@ -21,9 +21,17 @@ import {
 const MAX_ROOM_COUNT = 3;
 const MAX_GUEST_COUNT = 7;
 
-const getAd = (count) => {
+const usedAdIds = [];
+
+const generateAd = (count) => {
+    let adId;
+    do {
+        adId = getRandomInt(1, count);
+    } while (usedAdIds.includes(adId));
+    usedAdIds.push(adId);
+
     return {
-        id: getRandomInt(1, count),
+        id: adId,
         title: getRandomArrayElement(TITLES),
         price: {
             value: getRandomArrayElement(PRICE_VALUES),
@@ -59,14 +67,14 @@ const getAd = (count) => {
     };
 }
 
-const getAds = (count) => {
+const generateAds = (count) => {
     const ads = [];
 
     for (let i = 0; i < count; i++) {
-        ads.push(getAd(count));
+        ads.push(generateAd(count));
     }
 
     return ads;
 }
 
-export {getAds};
+export {generateAds};
