@@ -21,7 +21,7 @@ import {
 const MAX_ROOM_COUNT = 3;
 const MAX_GUEST_COUNT = 7;
 
-function getAd(count) {
+const getAd = (count) => {
     return {
         id: getRandomInt(1, count),
         title: getRandomArrayElement(TITLES),
