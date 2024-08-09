@@ -17,7 +17,19 @@ const getRandomBoolValue = () => {
 }
 
 
+const getFeaturesGeneration = () => {
+    return {
+        wifi: getRandomBoolValue(),
+        dishwasher: getRandomBoolValue(),
+        parking: getRandomBoolValue(),
+        washer: getRandomBoolValue(),
+        elevator: getRandomBoolValue(),
+        conditioner: getRandomBoolValue(),
+    }
+}
+
 export {
+    getFeaturesGeneration,
     getRandomBoolValue,
     getRandomEnumElement,
     getRandomArrayElement,

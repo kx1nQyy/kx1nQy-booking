@@ -1,4 +1,8 @@
 import {
+    getFeaturesGeneration
+} from "./util.js";
+
+import {
     HouseType,
     Currency
 } from "./enum";
@@ -46,14 +50,11 @@ const generateAd = (count) => {
             checkIn: getRandomArrayElement(CHECK_INS),
             eviction: getRandomArrayElement(EVICTIONS)
         },
+
         features: {
-            wifi: getRandomBoolValue(),
-            dishwasher: getRandomBoolValue(),
-            parking: getRandomBoolValue(),
-            washer: getRandomBoolValue(),
-            elevator: getRandomBoolValue(),
-            conditioner: getRandomBoolValue(),
+            getFeaturesGeneration
         },
+
         description: getRandomArrayElement(DESCRIPTIONS),
         location: {
             latitude:  35.6895,
