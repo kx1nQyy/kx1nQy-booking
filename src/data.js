@@ -68,6 +68,17 @@ const generateAd = (count) => {
     };
 }
 
+const getFeaturesGeneration = () => {
+    return {
+        wifi: getRandomBoolValue(),
+        dishwasher: getRandomBoolValue(),
+        parking: getRandomBoolValue(),
+        washer: getRandomBoolValue(),
+        elevator: getRandomBoolValue(),
+        conditioner: getRandomBoolValue(),
+    }
+}
+
 const generateAds = (count) => {
     const ads = [];
 
