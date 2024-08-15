@@ -25,6 +25,17 @@ import {
 const MAX_ROOM_COUNT = 3;
 const MAX_GUEST_COUNT = 7;
 
+const getFeatures = () => {
+    return {
+        wifi: getRandomBoolValue(),
+        dishwasher: getRandomBoolValue(),
+        parking: getRandomBoolValue(),
+        washer: getRandomBoolValue(),
+        elevator: getRandomBoolValue(),
+        conditioner: getRandomBoolValue(),
+    }
+}
+
 const usedAdIds = [];
 
 const generateAd = (count) => {
@@ -52,7 +63,7 @@ const generateAd = (count) => {
         },
 
         features: {
-            getFeaturesGeneration
+            getFeaturesGeneration: getFeatures
         },
 
         description: getRandomArrayElement(DESCRIPTIONS),
@@ -68,16 +79,6 @@ const generateAd = (count) => {
     };
 }
 
-const getFeaturesGeneration = () => {
-    return {
-        wifi: getRandomBoolValue(),
-        dishwasher: getRandomBoolValue(),
-        parking: getRandomBoolValue(),
-        washer: getRandomBoolValue(),
-        elevator: getRandomBoolValue(),
-        conditioner: getRandomBoolValue(),
-    }
-}
 
 const generateAds = (count) => {
     const ads = [];
