@@ -16,7 +16,6 @@ const getRandomBoolValue = () => {
     return Boolean(getRandomInt(0, 1));
 }
 
-
 export {
     getRandomBoolValue,
     getRandomEnumElement,

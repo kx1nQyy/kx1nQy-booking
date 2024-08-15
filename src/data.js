@@ -1,4 +1,8 @@
 import {
+    getFeaturesGeneration
+} from "./util.js";
+
+import {
     HouseType,
     Currency
 } from "./enum";
@@ -20,6 +24,17 @@ import {
 
 const MAX_ROOM_COUNT = 3;
 const MAX_GUEST_COUNT = 7;
+
+const getFeatures = () => {
+    return {
+        wifi: getRandomBoolValue(),
+        dishwasher: getRandomBoolValue(),
+        parking: getRandomBoolValue(),
+        washer: getRandomBoolValue(),
+        elevator: getRandomBoolValue(),
+        conditioner: getRandomBoolValue(),
+    }
+}
 
 const usedAdIds = [];
 
@@ -46,14 +61,11 @@ const generateAd = (count) => {
             checkIn: getRandomArrayElement(CHECK_INS),
             eviction: getRandomArrayElement(EVICTIONS)
         },
+
         features: {
-            wifi: getRandomBoolValue(),
-            dishwasher: getRandomBoolValue(),
-            parking: getRandomBoolValue(),
-            washer: getRandomBoolValue(),
-            elevator: getRandomBoolValue(),
-            conditioner: getRandomBoolValue(),
+            getFeaturesGeneration: getFeatures
         },
+
         description: getRandomArrayElement(DESCRIPTIONS),
         location: {
             latitude:  35.6895,
@@ -66,6 +78,7 @@ const generateAd = (count) => {
         }
     };
 }
+
 
 const generateAds = (count) => {
     const ads = [];
