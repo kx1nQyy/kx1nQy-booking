@@ -1,4 +1,6 @@
 import {generateAds} from "./data";
+import "./ad-form.js";
+import "./ad-card-list";
 
 const ADVERTISMENT_COUNT = 20;
 
