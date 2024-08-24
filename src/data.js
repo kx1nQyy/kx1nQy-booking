@@ -12,7 +12,8 @@ import {
     CHECK_INS,
     DESCRIPTIONS,
     EVICTIONS,
-    PRICE_VALUES
+    PRICE_VALUES,
+    POPUP_PHOTOS
 } from "./const";
 
 import {
@@ -23,7 +24,8 @@ import {
 } from "./util";
 
 const MAX_ROOM_COUNT = 3;
-const MAX_GUEST_COUNT = 7;
+const MAX_GUEST_COUNT = 4;
+const MAX_PHOTO_COUNT = 5;
 
 const getFeatures = () => {
     return {
@@ -37,6 +39,15 @@ const getFeatures = () => {
 }
 
 const usedAdIds = [];
+
+const generatePhotos = () => {
+    const adPhotos = [];
+    for (let i = 0; i < getRandomInt(1, MAX_PHOTO_COUNT); i++) {
+        adPhotos.push(getRandomArrayElement(POPUP_PHOTOS));
+    }
+
+    return adPhotos;
+}
 
 const generateAd = (count) => {
     let adId;
@@ -71,6 +82,7 @@ const generateAd = (count) => {
             latitude:  35.6895,
             longitude: 139.692
         },
+        popup__photos: generatePhotos(),
         user: {
             id: 1,
             login: 'k1to',
