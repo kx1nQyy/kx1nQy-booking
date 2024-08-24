@@ -36,10 +36,19 @@ const DESCRIPTIONS = [
     'description-3',
 ];
 
+const POPUP_PHOTOS = [
+    "../markup/img/photo-1",
+    "../markup/img/photo-2",
+    "../markup/img/photo-3",
+    "../markup/img/photo-4",
+    "../markup/img/photo-5",
+]
+
 export {
     TITLES,
     CHECK_INS,
     DESCRIPTIONS,
     EVICTIONS,
-    PRICE_VALUES
+    PRICE_VALUES,
+    POPUP_PHOTOS
 };
