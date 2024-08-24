@@ -9,6 +9,5 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- Added a function to get data [EX-1]
-
+- change get user data [BK-6](https://webdot.youtrack.cloud/agiles/171-6/current?issue=BK-6)
 - Started semver changelog

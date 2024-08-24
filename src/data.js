@@ -49,6 +49,14 @@ const generatePhotos = () => {
     return adPhotos;
 }
 
+const getUser = () => {
+    return {
+        id: 1,
+        login: 'k1to',
+        photo_path: 'user01.png',
+    };
+}
+
 const generateAd = (count) => {
     let adId;
     do {
@@ -83,11 +91,7 @@ const generateAd = (count) => {
             longitude: 139.692
         },
         popup__photos: generatePhotos(),
-        user: {
-            id: 1,
-            login: 'k1to',
-            photo_path: 'user01.png',
-        }
+        user: getUser()
     };
 }
 
