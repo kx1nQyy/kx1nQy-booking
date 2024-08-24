@@ -37,12 +37,12 @@ const DESCRIPTIONS = [
 ];
 
 const POPUP_PHOTOS = [
-    "../markup/img/photo-1",
-    "../markup/img/photo-2",
-    "../markup/img/photo-3",
-    "../markup/img/photo-4",
-    "../markup/img/photo-5",
-]
+    "photo-1.jpg",
+    "photo-2.jpg",
+    "photo-3.jpg",
+    "photo-4.jpg",
+    "photo-5.jpg",
+];
 
 export {
     TITLES,
