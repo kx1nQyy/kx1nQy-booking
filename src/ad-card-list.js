@@ -26,13 +26,30 @@ function getNounPluralForm(num, one, two, many)
     }
 }
 
-console.log(getNounPluralForm(10, 'компьютер', 'компьютера', 'компьютеров'))
-
 const formatCapacity = (capacity) => {
     const roomWord = getNounPluralForm(capacity.rooms, 'комната', 'комнаты', 'комнат');
     const guestWord = getNounPluralForm(capacity.guests, 'гостя', 'гостей', 'гостей');
 
     return `${capacity.rooms} ${roomWord} для ${capacity.guests} ${guestWord}`;
+}
+
+const renderFeatures = (features, featureListElement) => {
+    const notExistFeatures = [];
+    const featureListElements = featureListElement.querySelectorAll('li');
+
+    for (const key in features) {
+        if (features[key] === false) {
+            notExistFeatures.push(key);
+        }
+    }
+
+    for (const listElement of featureListElements) {
+        for (const key of notExistFeatures) {
+            if (listElement.classList.contains(`popup__feature--${key}`)) {
+                listElement.remove();
+            }
+        }
+    }
 }
 
 const renderAdCardList = (ads, container) => {
@@ -44,11 +61,20 @@ const renderAdCardList = (ads, container) => {
         priceElement.innerHTML += ad.price.currency;
 
         adCardElement.querySelector('.popup__title').textContent = ad.title;
+        adCardElement.querySelector('.popup__text--address').textContent = ad.address;
         adCardElement.querySelector('.popup__type').textContent = ad.type.value.ru;
 
         adCardElement.querySelector('.popup__text--capacity').textContent = formatCapacity(ad.capacity);
 
+        const timeElement = adCardElement.querySelector('.popup__text--time');
+        timeElement.textContent =  `c ${ad.dateTime.checkIn} по ${ad.dateTime.eviction}`;
 
+
+        adCardElement.querySelector('.popup__description').textContent = ad.description;
+
+        renderFeatures(ad.features, adCardElement.querySelector('.popup__features'));
+
+        adCardElement.querySelector('.popup__photos').textContent = ad.popup__photos;
         container.insertAdjacentElement('beforeend', adCardElement);
     }
 };

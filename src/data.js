@@ -1,14 +1,11 @@
 import {
-    getFeaturesGeneration
-} from "./util.js";
-
-import {
     HouseType,
     Currency
 } from "./enum";
 
 import {
     TITLES,
+    ADDRESS,
     CHECK_INS,
     DESCRIPTIONS,
     EVICTIONS,
@@ -67,6 +64,7 @@ const generateAd = (count) => {
     return {
         id: adId,
         title: getRandomArrayElement(TITLES),
+        address: getRandomEnumElement(ADDRESS),
         price: {
             value: getRandomArrayElement(PRICE_VALUES),
             currency: getRandomEnumElement(Currency)
@@ -81,9 +79,7 @@ const generateAd = (count) => {
             eviction: getRandomArrayElement(EVICTIONS)
         },
 
-        features: {
-            getFeaturesGeneration: getFeatures
-        },
+        features: getFeatures(),
 
         description: getRandomArrayElement(DESCRIPTIONS),
         location: {
