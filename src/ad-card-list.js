@@ -38,7 +38,7 @@ const renderFeatures = (features, featureListElement) => {
     const featureListElements = featureListElement.querySelectorAll('li');
 
     for (const key in features) {
-        if (features[key] === false) {
+        if (!features[key]) {
             notExistFeatures.push(key);
         }
     }
@@ -49,6 +49,21 @@ const renderFeatures = (features, featureListElement) => {
                 listElement.remove();
             }
         }
+    }
+}
+
+const altRenderFeatures = (features, featureListElement) => {
+    const existFeatures = [];
+    featureListElement.innerHTML = '';
+
+    for (const key in features) {
+        if (features[key]) {
+            existFeatures.push(key);
+        }
+    }
+
+    for (const key of existFeatures) {
+        featureListElement.innerHTML += `<li class="popup__feature popup__feature--${key}">${key}</li>`;
     }
 }
 
@@ -72,7 +87,7 @@ const renderAdCardList = (ads, container) => {
 
         adCardElement.querySelector('.popup__description').textContent = ad.description;
 
-        renderFeatures(ad.features, adCardElement.querySelector('.popup__features'));
+        altRenderFeatures(ad.features, adCardElement.querySelector('.popup__features'));
 
         adCardElement.querySelector('.popup__photos').textContent = ad.popup__photos;
         container.insertAdjacentElement('beforeend', adCardElement);
