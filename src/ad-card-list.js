@@ -69,28 +69,33 @@ const altRenderFeatures = (features, featureListElement) => {
 
 const renderAdCardList = (ads, container) => {
     for (const ad of ads) {
+        // 1. клонирование
         const adCardElement = templateElement.cloneNode(true);
 
+        // 2. модификация
         const priceElement = adCardElement.querySelector('.popup__text--price');
         priceElement.textContent = ad.price.value;
         priceElement.innerHTML += ad.price.currency;
 
-        adCardElement.querySelector('.popup__title').textContent = ad.title;
-        adCardElement.querySelector('.popup__text--address').textContent = ad.address;
-        adCardElement.querySelector('.popup__type').textContent = ad.type.value.ru;
-
-        adCardElement.querySelector('.popup__text--capacity').textContent = formatCapacity(ad.capacity);
-
         const timeElement = adCardElement.querySelector('.popup__text--time');
         timeElement.textContent =  `c ${ad.dateTime.checkIn} по ${ad.dateTime.eviction}`;
 
-
+        adCardElement.querySelector('.popup__title').textContent = ad.title;
+        adCardElement.querySelector('.popup__text--address').textContent = ad.address;
+        adCardElement.querySelector('.popup__type').textContent = ad.type.value.ru;
+        adCardElement.querySelector('.popup__text--capacity').textContent = formatCapacity(ad.capacity);
         adCardElement.querySelector('.popup__description').textContent = ad.description;
+        adCardElement.querySelector('.popup__photos').textContent = ad.popup__photos;
 
         altRenderFeatures(ad.features, adCardElement.querySelector('.popup__features'));
 
-        adCardElement.querySelector('.popup__photos').textContent = ad.popup__photos;
+        // 3. отрисовка (добавление на страницу)
         container.insertAdjacentElement('beforeend', adCardElement);
+
+        // 4. добавление обработчиков
+        adCardElement.addEventListener('click', () => {
+            alert(ad.title);
+        });
     }
 };
 
