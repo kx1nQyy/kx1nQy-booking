@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- realize click on card [BK-12](https://webdot.youtrack.cloud/agiles/171-6/current?issue=BK-12)
 - alt render features [BK-11](https://webdot.youtrack.cloud/agiles/171-6/current?issue=BK-11)
 - change get user data [BK-6](https://webdot.youtrack.cloud/agiles/171-6/current?issue=BK-6)
 - render ad list [BK-3](https://webdot.youtrack.cloud/agiles/171-6/current?issue=BK-3)
