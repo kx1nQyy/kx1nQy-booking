@@ -71,6 +71,7 @@ const renderAdCardList = (ads, container) => {
     for (const ad of ads) {
         // 1. клонирование
         const adCardElement = templateElement.cloneNode(true);
+        adCardElement.dataset.id = ad.id;
 
         // 2. модификация
         const priceElement = adCardElement.querySelector('.popup__text--price');
@@ -93,10 +94,22 @@ const renderAdCardList = (ads, container) => {
         container.insertAdjacentElement('beforeend', adCardElement);
 
         // 4. добавление обработчиков
-        adCardElement.addEventListener('click', () => {
-            alert(ad.title);
-        });
+        // adCardElement.addEventListener('click', (evt) => {
+        //     alert(ad.title);
+        // });
     }
+
+
+    container.addEventListener('click', (evt) => {
+        const cardElement = evt.target.closest('.popup');
+        if (cardElement) {
+            const cardId = +cardElement.dataset.id;
+            const ad = ads.find((adItem) => {
+                return adItem.id === cardId;
+            });
+            alert(ad.title);
+        }
+    });
 };
 
 export {
