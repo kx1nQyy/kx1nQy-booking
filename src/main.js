@@ -1,7 +1,8 @@
-import {generateAds} from "./data";
+import {generateAds} from "./data.js";
+import {renderAdCardList} from "./ad-card-list.js";
 import "./ad-form.js";
-import "./ad-card-list";
-import {renderAdCardList} from "./ad-card-list";
+import "./ad-card-list.js";
+import "./modal.js";
 
 const rootElement = document.getElementById('app');
 const ADVERTISMENT_COUNT = 5;

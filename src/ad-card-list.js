@@ -1,6 +1,4 @@
 const adCardTemplate = document.getElementById('card');
-const templateContent = adCardTemplate.content;
-const templateElement = templateContent.querySelector('.popup');
 
 function getNounPluralForm(num, one, two, many)
 {
@@ -68,6 +66,9 @@ const altRenderFeatures = (features, featureListElement) => {
 }
 
 const renderAdCardList = (ads, container) => {
+    const templateContent = adCardTemplate.content;
+    const templateElement = templateContent.querySelector('.popup');
+
     for (const ad of ads) {
         // 1. клонирование
         const adCardElement = templateElement.cloneNode(true);
