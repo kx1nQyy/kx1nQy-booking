@@ -19,15 +19,15 @@ if (modalElement) {
     modalOpenElement.addEventListener('click', openModal);
 }
 
-modalElement.addEventListener('click', (evt) => {
-    if (evt.target === modalElement) {
-        closeModal();
-    }
-});
+    modalElement.addEventListener('click', (evt) => {
+        if (evt.target === modalElement) {
+            closeModal();
+        }
+    });
 
-document.addEventListener('keydown', function(evt) {
-    const key = evt.key;
-    if (key === "Escape") {
-        closeModal();
-    }
-});
+    document.addEventListener('keydown', function(evt) {
+        const key = evt.key;
+        if (key === "Escape") {
+            closeModal();
+        }
+    });
