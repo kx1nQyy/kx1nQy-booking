@@ -15,8 +15,27 @@ const closeModal = () => {
 
 }
 
+const escapeCloseModal = () => {
+    document.addEventListener('keydown', function (evt) {
+        const key = evt.key;
+        if (key === "Escape") {
+            closeModal();
+        }
+    });
+};
+
+const overlayCloseModaL = () => {
+    modalElement.addEventListener('click', (evt) => {
+        if (evt.target === modalElement) {
+            closeModal();
+        }
+    });
+};
+
 if (modalElement) {
     modalOpenElement.addEventListener('click', openModal);
+    escapeCloseModal();
+    overlayCloseModaL();
 }
 
 modalElement.addEventListener('click', (evt) => {
@@ -25,9 +44,3 @@ modalElement.addEventListener('click', (evt) => {
     }
 });
 
-document.addEventListener('keydown', function(evt) {
-    const key = evt.key;
-    if (key === "Escape") {
-        closeModal();
-    }
-});
