@@ -5,42 +5,35 @@ const modalCloseElement = document.querySelector('.close-btn');
 const openModal = () => {
     // добавляем класс к элементу
     modalElement.classList.add('modal--open');
+
+    // добавляем обработчики
     modalCloseElement.addEventListener('click', closeModal);
+    modalElement.addEventListener('click', onOverlayClick);
+    document.addEventListener('keydown', onModalEscKeydown)
 };
 
 const closeModal = () => {
     // снимаем класс с элемента
     modalElement.classList.remove('modal--open');
-    modalCloseElement.removeEventListener('click', closeModal);
 
+    // снимаем обработчики
+    modalCloseElement.removeEventListener('click', closeModal);
+    modalElement.removeEventListener('click', onOverlayClick);
+    document.removeEventListener('keydown', onModalEscKeydown)
 }
 
-const escapeCloseModal = () => {
-    document.addEventListener('keydown', function (evt) {
-        const key = evt.key;
-        if (key === "Escape") {
-            closeModal();
-        }
-    });
+const onModalEscKeydown = (evt) => {
+    if (evt.key === "Escape") {
+        closeModal();
+    }
 };
 
-const overlayCloseModaL = () => {
-    modalElement.addEventListener('click', (evt) => {
-        if (evt.target === modalElement) {
-            closeModal();
-        }
-    });
+const onOverlayClick = (evt) => {
+    if (evt.target === modalElement) {
+        closeModal();
+    }
 };
 
 if (modalElement) {
     modalOpenElement.addEventListener('click', openModal);
-    escapeCloseModal();
-    overlayCloseModaL();
 }
-
-modalElement.addEventListener('click', (evt) => {
-    if (evt.target === modalElement) {
-        closeModal();
-    }
-});
-
