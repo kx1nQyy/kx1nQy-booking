@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- connect map [BK-16](https://webdot.youtrack.cloud/agiles/171-6/current?issue=BK-16)
 - fix and refactoring [BK-15](https://webdot.youtrack.cloud/agiles/171-6/current?issue=BK-15)
 - modal window open and close [bk-14](https://webdot.youtrack.cloud/agiles/171-6/current?issue=BK-14)
 - delegation on card [BK-13](https://webdot.youtrack.cloud/agiles/171-6/current?issue=BK-13)
