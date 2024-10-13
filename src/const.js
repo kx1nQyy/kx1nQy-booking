@@ -52,6 +52,19 @@ const POPUP_PHOTOS = [
     "photo-5.jpg",
 ];
 
+const CITIES = {
+    khv: {
+        lat: 48.441466,
+        lng: 135.111173
+    }
+};
+
+const OPENSTREATMAP_COPYRIGHT = `
+    &copy;
+    <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>
+    contributors
+`;
+
 export {
     TITLES,
     ADDRESS,
@@ -59,5 +72,7 @@ export {
     DESCRIPTIONS,
     EVICTIONS,
     PRICE_VALUES,
-    POPUP_PHOTOS
+    POPUP_PHOTOS,
+    OPENSTREATMAP_COPYRIGHT,
+    CITIES
 };

@@ -1,16 +1,9 @@
+import {addMarkers} from "./marker";
 import {generateAds} from "./data.js";
-import {renderAdCardList} from "./ad-card-list.js";
-import "./ad-form.js";
-import "./ad-card-list.js";
-import "./modal.js";
-import "./map.js";
+import {mapInit} from "./map";
 
-const rootElement = document.getElementById('app');
-const ADVERTISMENT_COUNT = 5;
+const ADVERTISMENT_COUNT = 1;
 
 const ads = generateAds(ADVERTISMENT_COUNT);
-
-
-if (rootElement) {
-    renderAdCardList(ads, rootElement);
-}
+const map = mapInit();
+addMarkers(ads, map);

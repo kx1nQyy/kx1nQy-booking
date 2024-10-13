@@ -92,8 +92,7 @@ const renderAdCardList = (ads, container) => {
         altRenderFeatures(ad.features, adCardElement.querySelector('.popup__features'));
 
         // 3. отрисовка (добавление на страницу)
-        container.insertAdjacentElement('beforeend', adCardElement);
-
+        return adCardElement
         // 4. добавление обработчиков
         // adCardElement.addEventListener('click', (evt) => {
         //     alert(ad.title);
