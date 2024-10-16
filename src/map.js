@@ -1,38 +1,23 @@
+import {OPENSTREATMAP_COPYRIGHT, CITIES} from "./const";
+
 const MAP_ELEMENT_ID = 'map-canvas';
 const SCALE_LEVEL = 16;
 
-const CITIES = {
-    khv: {
-        lat: 48.441466,
-        lng: 135.111173
-    }
-};
+const mapInit = () => {
+    const map = L.map(MAP_ELEMENT_ID)
+        .setView(
+            CITIES.khv,
+            SCALE_LEVEL
+        );
 
-const points = [
-    {
-        lat: 48.441466,
-        lng: 135.111173
-    }
-];
+    L.tileLayer(
+        'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
+        {
+            attribution: OPENSTREATMAP_COPYRIGHT
+        }
+    ).addTo(map);
 
-const map = L.map(MAP_ELEMENT_ID)
-    .setView(
-        CITIES.khv,
-        SCALE_LEVEL
-    );
-
-L.tileLayer(
-    'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
-    {
-        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-    }
-).addTo(map);
-
-const createCustomPopup = () => {
-    return '<div>Max Developer</div>';
+    return map;
 }
 
-const marker = L.marker(points[0]);
-marker
-    .addTo(map)
-    .bindPopup(createCustomPopup());
+export {mapInit}
