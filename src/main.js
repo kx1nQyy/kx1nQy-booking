@@ -1,6 +1,6 @@
 import {addMarkers} from "./marker";
 import {generateAds} from "./data.js";
-import {mapInit} from "./map";
+import {mapInit} from "./map.js";
 
 const ADVERTISMENT_COUNT = 1;
 

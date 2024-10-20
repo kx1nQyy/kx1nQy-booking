@@ -2,7 +2,7 @@ const HouseType = {
     Flat:  {
         id: 1,
         value: {
-            ru: 'Кввртира',
+            ru: 'Квартира',
             en: 'flat'
         }
     },

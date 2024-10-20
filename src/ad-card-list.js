@@ -114,4 +114,6 @@ const renderAdCardList = (ads, container) => {
 
 export {
     renderAdCardList,
+    altRenderFeatures,
+    formatCapacity
 }
