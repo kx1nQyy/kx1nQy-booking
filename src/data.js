@@ -54,7 +54,7 @@ const getUser = () => {
     };
 }
 
-const generateAd = (count) => {
+const generateAd = (count, point) => {
     let adId;
     do {
         adId = getRandomInt(1, count);
@@ -82,21 +82,18 @@ const generateAd = (count) => {
         features: getFeatures(),
 
         description: getRandomArrayElement(DESCRIPTIONS),
-        location: {
-            latitude:  35.6895,
-            longitude: 139.692
-        },
+        location: point,
         popup__photos: generatePhotos(),
         user: getUser()
     };
 }
 
 
-const generateAds = (count) => {
+const generateAds = (points) => {
     const ads = [];
 
-    for (let i = 0; i < count; i++) {
-        ads.push(generateAd(count));
+    for (let i = 0; i < points.length; i++) {
+        ads.push(generateAd(points.length, points[i]));
     }
 
     return ads;

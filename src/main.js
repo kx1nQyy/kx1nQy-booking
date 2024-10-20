@@ -1,9 +1,8 @@
 import {addMarkers} from "./marker";
 import {generateAds} from "./data.js";
+import {POINTS} from "./const.js";
 import {mapInit} from "./map.js";
 
-const ADVERTISMENT_COUNT = 1;
-
-const ads = generateAds(ADVERTISMENT_COUNT);
+const ads = generateAds(POINTS.khv);
 const map = mapInit();
 addMarkers(ads, map);
