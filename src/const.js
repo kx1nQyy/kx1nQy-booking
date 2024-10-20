@@ -58,6 +58,33 @@ const CITIES = {
         lng: 135.111173
     }
 };
+48.493647, 135.066042
+const POINTS = {
+    khv: [
+        {
+            lat: 48.441466,
+            lng: 135.111173
+        },
+        {
+            lat: 48.493647,
+            lng: 135.066042
+        },
+        {
+            lat: 48.525891,
+            lng: 135.170737
+        }
+    ],
+    msc: [
+        {
+            lat: 55.757313,
+            lng:  37.823376
+        },
+        {
+            lat: 55.791481,
+            lng:  37.884444
+        }
+    ]
+};
 
 const OPENSTREATMAP_COPYRIGHT = `
     &copy;
@@ -74,5 +101,6 @@ export {
     PRICE_VALUES,
     POPUP_PHOTOS,
     OPENSTREATMAP_COPYRIGHT,
+    POINTS,
     CITIES
 };

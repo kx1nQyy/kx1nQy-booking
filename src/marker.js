@@ -7,13 +7,6 @@ const adCardTemplate = document.getElementById('card');
 const templateContent = adCardTemplate.content;
 const templateElement = templateContent.querySelector('.popup');
 
-const points = [
-    {
-        lat: 48.441466,
-        lng: 135.111173
-    }
-];
-
 const createCustomPopup = (ad) => {
     const adCardElement = templateElement.cloneNode(true);
 
@@ -38,7 +31,7 @@ const createCustomPopup = (ad) => {
 
 const addMarkers = (ads, map) => {
     for (const ad of ads) {
-        const marker = L.marker(points[0]);
+        const marker = L.marker(ad.location);
         marker
             .addTo(map)
             .bindPopup(createCustomPopup(ad));
