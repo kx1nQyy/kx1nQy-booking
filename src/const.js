@@ -58,7 +58,7 @@ const CITIES = {
         lng: 135.111173
     }
 };
-48.493647, 135.066042
+
 const POINTS = {
     khv: [
         {
