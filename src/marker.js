@@ -1,7 +1,4 @@
-import {
-    altRenderFeatures,
-    formatCapacity
-} from "../public/old/ad-card-list";
+import {getNounPluralForm} from './util.js';
 
 const adCardTemplate = document.getElementById('card');
 const adTemplateContent = adCardTemplate.content;
@@ -16,6 +13,28 @@ const createPopupPhotos = (photos, container) => {
         const adPhotoElement = adPhotoTemplateElement.cloneNode();
         adPhotoElement.src = './img/markers/' + photo;
         container.append(adPhotoElement);
+    }
+}
+
+const formatCapacity = (capacity) => {
+    const roomWord = getNounPluralForm(capacity.rooms, 'комната', 'комнаты', 'комнат');
+    const guestWord = getNounPluralForm(capacity.guests, 'гостя', 'гостей', 'гостей');
+
+    return `${capacity.rooms} ${roomWord} для ${capacity.guests} ${guestWord}`;
+}
+
+const renderFeatures = (features, featureListElement) => {
+    const existFeatures = [];
+    featureListElement.innerHTML = '';
+
+    for (const key in features) {
+        if (features[key]) {
+            existFeatures.push(key);
+        }
+    }
+
+    for (const key of existFeatures) {
+        featureListElement.innerHTML += `<li class="popup__feature popup__feature--${key}">${key}</li>`;
     }
 }
 
@@ -36,7 +55,7 @@ const createCustomPopup = (ad) => {
     adCardElement.querySelector('.popup__description').textContent = ad.description;
     createPopupPhotos(ad.popup__photos, adCardElement.querySelector('.popup__photos'));
 
-    altRenderFeatures(ad.features, adCardElement.querySelector('.popup__features'));
+    renderFeatures(ad.features, adCardElement.querySelector('.popup__features'));
 
     return adCardElement;
 };
