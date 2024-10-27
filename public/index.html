@@ -453,15 +453,7 @@
                 <li class="popup__feature popup__feature--conditioner"></li>
             </ul>
             <p class="popup__description">Великолепная квартира-студия в центре Токио. Подходит как туристам, так и бизнесменам. Квартира полностью укомплектована и недавно отремонтирована.</p>
-            <div class="popup__photos">
-                <img
-                    class="popup__photo"
-                    src=""
-                    width="45"
-                    height="40"
-                    alt="Фотография жилья"
-                >
-            </div>
+            <div class="popup__photos"></div>
         </article>
     </template>
 
@@ -478,6 +470,17 @@
             <p class="error__message">Ошибка размещения объявления</p>
             <button type="button" class="error__button">Попробовать снова</button>
         </div>
+    </template>
+
+    <template id="popup__photo">
+        <img
+            class="popup__photo"
+            src=""
+            width="45"
+            height="40"
+            alt="Фотография жилья"
+            style="object-fit: cover; object-position: center;"
+        >
     </template>
 
     <script src="./leaflet/leaflet.js"></script>

@@ -45,11 +45,10 @@ const DESCRIPTIONS = [
 ];
 
 const POPUP_PHOTOS = [
-    "photo-1.jpg",
-    "photo-2.jpg",
-    "photo-3.jpg",
-    "photo-4.jpg",
-    "photo-5.jpg",
+    "khv-max.jpg",
+    "idven.jpg",
+    "khv-air.jpg",
+    "khv-179.jpg",
 ];
 
 const CITIES = {

@@ -33,7 +33,7 @@ const getFeatures = () => {
         elevator: getRandomBoolValue(),
         conditioner: getRandomBoolValue(),
     }
-}
+};
 
 const usedAdIds = [];
 
@@ -44,7 +44,7 @@ const generatePhotos = () => {
     }
 
     return adPhotos;
-}
+};
 
 const getUser = () => {
     return {
@@ -52,7 +52,7 @@ const getUser = () => {
         login: 'k1to',
         photo_path: 'user01.png',
     };
-}
+};
 
 const generateAd = (count, point) => {
     let adId;
@@ -86,7 +86,7 @@ const generateAd = (count, point) => {
         popup__photos: generatePhotos(),
         user: getUser()
     };
-}
+};
 
 
 const generateAds = (points) => {
@@ -97,6 +97,6 @@ const generateAds = (points) => {
     }
 
     return ads;
-}
+};
 
 export {generateAds};
