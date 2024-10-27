@@ -99,7 +99,6 @@ const renderAdCardList = (ads, container) => {
         // });
     }
 
-
     container.addEventListener('click', (evt) => {
         const cardElement = evt.target.closest('.popup');
         if (cardElement) {

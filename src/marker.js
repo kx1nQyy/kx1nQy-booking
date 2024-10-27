@@ -1,14 +1,26 @@
 import {
     altRenderFeatures,
     formatCapacity
-} from "./ad-card-list";
+} from "../public/old/ad-card-list";
 
 const adCardTemplate = document.getElementById('card');
-const templateContent = adCardTemplate.content;
-const templateElement = templateContent.querySelector('.popup');
+const adTemplateContent = adCardTemplate.content;
+const adTemplateElement = adTemplateContent.querySelector('.popup');
+
+const adPhotoTemplate = document.getElementById('popup__photo');
+const adPhotoTemplateContent = adPhotoTemplate.content;
+const adPhotoTemplateElement = adPhotoTemplateContent.querySelector('.popup__photo');
+
+const createPopupPhotos = (photos, container) => {
+    for (const photo of photos) {
+        const adPhotoElement = adPhotoTemplateElement.cloneNode();
+        adPhotoElement.src = './img/markers/' + photo;
+        container.append(adPhotoElement);
+    }
+}
 
 const createCustomPopup = (ad) => {
-    const adCardElement = templateElement.cloneNode(true);
+    const adCardElement = adTemplateElement.cloneNode(true);
 
     const priceElement = adCardElement.querySelector('.popup__text--price');
     priceElement.textContent = ad.price.value;
@@ -22,7 +34,7 @@ const createCustomPopup = (ad) => {
     adCardElement.querySelector('.popup__type').textContent = ad.type.value.ru;
     adCardElement.querySelector('.popup__text--capacity').textContent = formatCapacity(ad.capacity);
     adCardElement.querySelector('.popup__description').textContent = ad.description;
-    adCardElement.querySelector('.popup__photos').textContent = ad.popup__photos;
+    createPopupPhotos(ad.popup__photos, adCardElement.querySelector('.popup__photos'));
 
     altRenderFeatures(ad.features, adCardElement.querySelector('.popup__features'));
 
