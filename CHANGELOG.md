@@ -9,7 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- validation form [BK-21](https://webdot.youtrack.cloud/agiles/171-6/current?issue=BK-21)
+- validation [BK-21](https://webdot.youtrack.cloud/agiles/171-6/current?issue=BK-21)
 - add photos [BK-20](https://webdot.youtrack.cloud/agiles/171-6/current?issue=BK-20)
 - coords generateAd [BK-19](https://webdot.youtrack.cloud/agiles/171-6/current?issue=BK-19)
 - add data marker [BK-18](https://webdot.youtrack.cloud/agiles/171-6/current?issue=BK-18)

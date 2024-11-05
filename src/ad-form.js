@@ -9,17 +9,32 @@ const MAX_TITLE_LENGTH = 15;
 const MAX_DESCRIPTION_LENGTH = 100;
 const MIN_DESCRIPTION_LENGTH = 10;
 
-if (priceInputELment) {
-    priceInputELment.addEventListener('input', () => {
-        const valuePrice = priceInputELment.value;
+const getErrorMessage = (value, maxValue, minValue, inputType) => {
+    let error = '';
+    const isTextArea = inputType === 'textarea';
 
-        let error = '';
-        if (valuePrice > MAX_PRICE_VALUE) {
-            error = `${MAX_PRICE_VALUE}р. максимаьная стоимость.`;
-        }
-        else if (valuePrice < MIN_PRICE_VALUE) {
-            error = `${MIN_PRICE_VALUE}р. минимальная стоимость.`;
-        }
+    if (isTextArea) {
+        value = value.length;
+    }
+
+    if (value > maxValue) {
+        error = isTextArea
+            ? `Удалите лишние ${value - maxValue} симв.`
+            : `${maxValue} максимальная стоимость.`;
+    } else if (value < minValue) {
+        error = isTextArea
+            ? `${minValue} минимальное число символов для описания.`
+            : `${minValue} минимальная стоимость.`;
+    }
+
+    return error;
+}
+
+if (priceInputELment) {
+    priceInputELment.addEventListener('input', (evt) => {
+        const value = evt.target.value;
+
+        const error = getErrorMessage(value, MAX_PRICE_VALUE, MIN_PRICE_VALUE, evt.target.type);
 
         priceInputELment.setCustomValidity(error);
         priceInputELment.reportValidity();
@@ -41,19 +56,11 @@ if (titleInputELment) {
 }
 
 if (descriptionInputELment) {
-    descriptionInputELment.addEventListener('input', () => {
-        const valueLength = descriptionInputELment.value.length;
+    descriptionInputELment.addEventListener('input', (evt) => {
+        const value = evt.target.value;
 
-        let error = '';
-        if (valueLength > MAX_DESCRIPTION_LENGTH) {
-            error = `Удалите лишние ${valueLength - MAX_DESCRIPTION_LENGTH} симв.`;
-        }
-        else if (valueLength < MIN_DESCRIPTION_LENGTH) {
-            error = `${MIN_DESCRIPTION_LENGTH} минимальное число символов для описания.`
-        }
+        const error = getErrorMessage(value, MAX_DESCRIPTION_LENGTH, MIN_DESCRIPTION_LENGTH, evt.target.type);
 
-
-        console.log(descriptionInputELment.setCustomValidity(error))
         descriptionInputELment.setCustomValidity(error);
         descriptionInputELment.reportValidity();
     });
