@@ -1,13 +1,35 @@
 const adFormElement = document.querySelector('.ad-form');
-const titleInputELment = adFormElement.querySelector('#title');
-const priceInputELment = adFormElement.querySelector('#price');
-const descriptionInputELment = adFormElement.querySelector('#description');
+const titleInputElment = adFormElement.querySelector('#title');
+const priceInputElment = adFormElement.querySelector('#price');
+const descriptionInputElment = adFormElement.querySelector('#description');
+const typeInputElement = adFormElement.querySelector('#type')
+const timeinInputElement = adFormElement.querySelector('#timein')
+const timeoutInputElement = adFormElement.querySelector('#timeout')
 
-const MAX_PRICE_VALUE = 10000;
-const MIN_PRICE_VALUE = 1;
-const MAX_TITLE_LENGTH = 15;
+const MAX_PRICE_VALUE = 1_000_000;
+let minPriceValue = 1;
+const MAX_TITLE_LENGTH = 100;
+const MIN_TITLE_LENGTH = 10;
 const MAX_DESCRIPTION_LENGTH = 100;
 const MIN_DESCRIPTION_LENGTH = 10;
+
+const entryExitTime = (timein, timeout) => {
+    switch (timein) {
+        case '12:00' :
+            timeout = '12:00'
+            break
+
+        case '13:00' :
+            timeout = '13:00'
+            break
+
+        case '14:00' :
+            timeout = '14:00'
+            break
+    }
+}
+
+
 
 const getErrorMessage = (value, maxValue, minValue, inputType) => {
     let error = '';
@@ -30,38 +52,84 @@ const getErrorMessage = (value, maxValue, minValue, inputType) => {
     return error;
 }
 
-if (priceInputELment) {
-    priceInputELment.addEventListener('input', (evt) => {
+const housePriceChanges = (houseType) => {
+    switch (houseType) {
+        case 'bungalow':
+            minPriceValue = 0;
+            break
+
+        case 'flat':
+            minPriceValue = 1000;
+            break
+
+        case 'hotel':
+            minPriceValue = 3000;
+            break
+
+        case 'house':
+            minPriceValue = 5000;
+            break
+
+        case 'palace':
+            minPriceValue = 10000;
+            break
+    }
+}
+
+if (typeInputElement) {
+    typeInputElement.addEventListener('input', (evt) => {
         const value = evt.target.value;
 
-        const error = getErrorMessage(value, MAX_PRICE_VALUE, MIN_PRICE_VALUE, evt.target.type);
+        housePriceChanges(value);
 
-        priceInputELment.setCustomValidity(error);
-        priceInputELment.reportValidity();
+        const error = getErrorMessage(value, MAX_PRICE_VALUE, minPriceValue, evt.target.type);
+
+        priceInputElment.setCustomValidity(error);
+        priceInputElment.reportValidity();
     });
 }
 
-if (titleInputELment) {
-    titleInputELment.addEventListener('input', () => {
-        const valueLength = titleInputELment.value.length;
+if (priceInputElment) {
+    priceInputElment.addEventListener('input', (evt) => {
+        const value = evt.target.value;
 
-        let error = '';
-        if (valueLength > MAX_TITLE_LENGTH) {
-            error = `Удалите лишние ${valueLength - MAX_TITLE_LENGTH} симв.`;
-        }
+        const error = getErrorMessage(value, MAX_PRICE_VALUE, minPriceValue, evt.target.type);
 
-        titleInputELment.setCustomValidity(error);
-        titleInputELment.reportValidity();
+        priceInputElment.setCustomValidity(error);
+        priceInputElment.reportValidity();
+    });
+}
+
+if (timeinInputElement, timeoutInputElement) {
+    timeinInputElement.addEventListener('input', (evt) => {
+        const value = evt.target.value;
+        // const error = getErrorMessage(value, MAX_PRICE_VALUE, minPriceValue, evt.target.type);
+
+        timeinInputElement.setCustomValidity(error);
+        timeinInputElement.reportValidity();
+    });
+}
+
+if (titleInputElment) {
+    titleInputElment.addEventListener('input', (evt) => {
+        const value = titleInputElment.value;
+
+        titleInputElment.querySelector('.required')
+
+        const error = getErrorMessage(value, MAX_TITLE_LENGTH, MIN_TITLE_LENGTH, evt.target.type);
+
+        titleInputElment.setCustomValidity(error);
+        titleInputElment.reportValidity();
     }); 
 }
 
-if (descriptionInputELment) {
-    descriptionInputELment.addEventListener('input', (evt) => {
+if (descriptionInputElment) {
+    descriptionInputElment.addEventListener('input', (evt) => {
         const value = evt.target.value;
 
         const error = getErrorMessage(value, MAX_DESCRIPTION_LENGTH, MIN_DESCRIPTION_LENGTH, evt.target.type);
 
-        descriptionInputELment.setCustomValidity(error);
-        descriptionInputELment.reportValidity();
+        descriptionInputElment.setCustomValidity(error);
+        descriptionInputElment.reportValidity();
     });
 }
